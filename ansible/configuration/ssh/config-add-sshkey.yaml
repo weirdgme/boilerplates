@@ -1,6 +1,6 @@
 ---
 - name: add ssh key
-  hosts: "{{ hosts }}"
+  hosts: "*"
   become: yes
   tasks:
   - name: install public keys
