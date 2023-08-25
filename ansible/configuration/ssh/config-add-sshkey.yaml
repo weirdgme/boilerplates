@@ -1,6 +1,6 @@
 ---
 - name: add ssh key
-  hosts: *
+  hosts: all
   become: true
   tasks:
   - name: install public keys
