@@ -26,11 +26,11 @@ entryPoints:
   web:
     address: :80
     # -- (Optional) Redirect all HTTP to HTTPS
-    # http:
-    #   redirections:
-    #     entryPoint:
-    #       to: websecure
-    #       scheme: https
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
   websecure:
     address: :443
   # -- (Optional) Add custom Entrypoint
@@ -38,7 +38,7 @@ entryPoints:
   #   address: :8080
 
 # -- Configure your CertificateResolver here...
-# certificatesResolvers:
+certificatesResolvers:
 #   staging:
 #     acme:
 #       email: your-email@example.com
@@ -53,24 +53,24 @@ entryPoints:
 #         resolvers:
 #           - "1.1.1.1:53"
 #           - "8.8.8.8:53"
-#   production:
-#     acme:
-#       email: your-email@example.com
-#       storage: /etc/traefik/certs/acme.json
-#       caServer: "https://acme-v02.api.letsencrypt.org/directory"
-#       -- (Optional) Remove this section, when using DNS Challenge
-#       httpChallenge:
-#         entryPoint: web
-#       -- (Optional) Configure DNS Challenge
-#       dnsChallenge:
-#         provider: your-resolver (e.g. cloudflare)
-#         resolvers:
-#           - "1.1.1.1:53"
-#           - "8.8.8.8:53"
+  production:
+    acme:
+      email: jimiumar@gmail.com
+      storage: /etc/traefik/certs/acme.json
+      caServer: "https://acme-v02.api.letsencrypt.org/directory"
+      # -- (Optional) Remove this section, when using DNS Challenge
+      # httpChallenge:
+      #   entryPoint: web
+      -- (Optional) Configure DNS Challenge
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "8.8.8.8:53"
 
 # -- (Optional) Disable TLS Cert verification check
-# serversTransport:
-#   insecureSkipVerify: true
+serversTransport:
+  insecureSkipVerify: true
 
 # -- (Optional) Overwrite Default Certificates
 # tls:
