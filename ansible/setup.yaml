@@ -1,6 +1,6 @@
 ---
 - name: Ensure Required Packages Are Installed
-  hosts: servers
+  hosts: all
   become: yes
   tasks:
     - name: Ensure pip is installed
